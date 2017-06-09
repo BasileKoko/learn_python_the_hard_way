@@ -1,3 +1,4 @@
+# review Python class
 class Employee:
     def __init__(self, firstname, surname,  age):
       self.firstname = firstname
