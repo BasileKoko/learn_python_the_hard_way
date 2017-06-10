@@ -1,0 +1,3 @@
+First text line
+Second text line
+Third text line appending new line!
