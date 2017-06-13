@@ -1,0 +1,43 @@
+In MAC OSX:
+1. Install pip 
+sudo easy_install pip
+
+2. Install virtualenv
+sudo pip install virtualenv
+
+ Virtualenv
+
+1. Create virtualenv project
+virtualenv django_project
+
+2. Access project folder
+cd django_project
+
+3. activate the virtualenv
+source bin/activate
+
+4. Check install packages in the virtualenv
+pip freeze
+
+5. Install Django(version 1.9)
+pip install django==1.9
+
+Server
+1. run server
+python manage.py runserver
+
+WEBSITE
+
+1. Create project
+python manage.py startproject projectname
+
+2. Create app
+a project is made of multiple apps
+python manage.py startapp appname
+
+Models
+
+1. create models class in Model
+2. add app name in main project config
+3. migrate the new model created python manage.py makemigrations appname
+4. apply models changes to db : python manage.py  migrate
