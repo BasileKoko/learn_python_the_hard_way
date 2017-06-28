@@ -29,7 +29,7 @@ python manage.py runserver
 WEBSITE
 
 1. Create project
-python manage.py startproject projectname
+=> django-admin.py startproject bookstore
 
 2. Create app
 a project is made of multiple apps
@@ -41,3 +41,19 @@ Models
 2. add app name in main project config
 3. migrate the new model created python manage.py makemigrations appname
 4. apply models changes to db : python manage.py  migrate
+
+DATABASE
+1 to many:
+class Author(models.Model):
+  Book = models.ForeignKey('Book', on_delete=models.CASCADE)
+  name = models.CharField(max_length=255)
+  surname = models.CharField(max_length=255)
+
+class Book(models.Model):
+  title = models.CharField(max_length=255)
+  Release_date =models.CharField(max_length=255)
+
+class Publisher(models.Model):
+  name = CharField(max_length=250)
+  city = CharField(max_length=250)
+  books = models.ManyToManyField(Book)
