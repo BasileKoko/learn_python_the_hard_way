@@ -7,6 +7,7 @@ def open_favourite_site():
       "http://koaci.com",
       "https://outlook.live.com/owa/",
       "http://bbc.co.uk/",
+      "https://uk.yahoo.com/",
       "https://linkedin.com/in/basile-koko-1b575b54/"
   ]
 
