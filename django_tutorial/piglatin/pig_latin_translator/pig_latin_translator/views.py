@@ -5,5 +5,14 @@ def home(request):
     return render(request, 'home.html')
 
 def translate(request):
-    # return render(request, 'translate.html')
-    return HttpResponse("You reached the translate page!" + request.GET['data'])
+    translation = ""
+    words = (request.GET['data']).lower().split()
+    for word in words:
+        if word[0] in ["a", "e", "i", "o", "u"]:
+            translation += (word + "ay ")
+        else:
+            translation += (word[1:] + word[0] + "ay ")
+    return render(request, 'translate.html', {'text': request.GET['data'], 'trans': translation })
+
+
+    # return HttpResponse(translation)
