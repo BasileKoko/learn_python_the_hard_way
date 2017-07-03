@@ -15,4 +15,5 @@ def translate(request):
     return render(request, 'translate.html', {'text': request.GET['data'], 'trans': translation })
 
 
-    # return HttpResponse(translation)
+def about(request):
+    return render(request, 'about.html')
