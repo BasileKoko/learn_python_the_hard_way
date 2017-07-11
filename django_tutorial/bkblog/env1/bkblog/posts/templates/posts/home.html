@@ -1,4 +1,7 @@
 <h1> Welcome to BK Blog </h1>
 {% for post in posts %}
-{{ post.title }} <br>
+{{ post.title }}
+{{ post.date_pretty }}
+{{ post.summary }}
+<br><br>
 {% endfor %}
