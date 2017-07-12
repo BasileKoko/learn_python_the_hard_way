@@ -1,7 +1,7 @@
 <h1> Welcome to BK Blog </h1>
 <h3> Latest Posts </h3>
 {% for post in posts %}
-{{ post.title }}
+ <a href="{% url 'post_details' post.id %}"> {{ post.title }} </a> <br>
 {{ post.date_pretty }} <br>
 <img src="{{ post.image.url}}"> <br>
 {{ post.summary }}
