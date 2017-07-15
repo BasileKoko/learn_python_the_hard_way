@@ -4,14 +4,11 @@
 <nav class="navbar navbar-inverse">
   <ul class="nav navbar-nav navbar-left">
     <li><a href="{% url 'home'%}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="#">About</a></li>
     <li><a href="https://bkjourneytocoding.wordpress.com/"> Blog Journey to coding</a></li>
     <li><a href="https://github.com/BasileKoko"> Github</a></li>
   </ul>
 </nav>
 <div class="container">
-  {{ post.title }} <br>
-  {{ post.date_pretty }} <br>
-  <img src="{{ post.image.url}}" class="img-responsive" style="height:250px; width:300px;" /> <br>
-  {{post.body}}
+  <h1 class="text-center"> This is an About page</h1>
 </div>
