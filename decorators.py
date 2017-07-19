@@ -1,12 +1,12 @@
 def decorator(f):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print 'before function is called'
-        f()
+        f(*args, **kwargs)
         print 'after function is called'
     return wrapper
 
 @decorator
-def sayHello():
-    print 'Hello'
+def sayHello(name):
+    print name
 
-sayHello()
+sayHello('Tom')
