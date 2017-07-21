@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
@@ -27,7 +27,10 @@ def loginview(request):
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             login(request, user)
-            return render(request, 'login.html', {'error': 'Successfully login'})
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
+            else:
+                return render(request, 'login.html', {'error': 'Successfully login'})
         else:
             return render(request, 'login.html', {'error':'username and password does not match'})
     else:

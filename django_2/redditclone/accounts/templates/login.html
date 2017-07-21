@@ -17,6 +17,9 @@
 <div class="container">
   <form class="form-horizontal" action='' method="POST">
     {% csrf_token %}
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value={{request.GET.next}}>
+    {% endif %}
 
   <fieldset>
     <div id="legend">
