@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-inverse">
   <ul class="nav navbar-nav navbar-left">
-    <li><a href="#">Reddit Clone</a></li>
+    <li><a href="{% url 'home' %}">Reddit Clone</a></li>
     <li><a href="{%url 'signup' %}">Signup</a></li>
     <li><a href="{% url 'loginview' %}"> Login</a></li>
     <li><a href="{% url 'create' %}"> New Post</a></li>
@@ -33,7 +33,7 @@
       <!-- Password-->
       <label class="control-label" for="url"> URL</label>
       <div class="controls">
-        <input type="url" id="url" name="url" placeholder="" class="input-xlarge">
+        <input type="text" id="url" name="url" placeholder="" class="input-xlarge">
       </div>
     </div><br>
 
