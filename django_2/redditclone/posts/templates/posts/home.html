@@ -18,12 +18,8 @@
 <div class="container">
   {% if posts %}
     {% for p in posts%}
-    <ul>
-      <li> {{p.url }} </li>
-      <li> {{p.title }} </li>
-      <li> {{p.pub_date }} </li>
-      <li> {{p.author }} </li>
-    </ul>
+      <a href='#'>  UP {{p.votes_total}} DOWN {{ p.title}} </a> <br>
+      {{p.pub_date }} by {{p.author }}<br><br>
     {% endfor %}
   {% endif %}
 </div>
