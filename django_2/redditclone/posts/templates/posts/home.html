@@ -18,7 +18,7 @@
 <div class="container">
   {% if posts %}
     {% for p in posts%}
-      <a href='#'>  UP {{p.votes_total}} DOWN {{ p.title}} </a> <br>
+      UP {{p.votes_total}} DOWN <a href={{p.url}}> {{ p.title}} </a> <br>
       {{p.pub_date }} by {{p.author }}<br><br>
     {% endfor %}
   {% endif %}
