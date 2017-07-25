@@ -7,7 +7,6 @@
     <li><a href="{%url 'signup' %}">Signup</a></li>
     <li><a href="{% url 'loginview' %}"> Login</a></li>
     <li><a href="{% url 'create' %}"> New Post</a></li>
-
   </ul>
 </nav>
 {% if error %}
@@ -18,8 +17,18 @@
 <div class="container">
   {% if posts %}
     {% for p in posts%}
-      UP {{p.votes_total}} DOWN <a href={{p.url}}> {{ p.title}} </a> <br>
-      {{p.pub_date }} by {{p.author }}<br><br>
-    {% endfor %}
-  {% endif %}
+<form action="{% url 'upvote' p.id%} " method="POST">
+    {% csrf_token %}
+      <input type="hidden" id="upvote" name="upvote">
+      <button type="submit">UP</button>
+</form>
+{{p.votes_total}}<a href={{p.url}}> {{ p.title}} </a>
+{{p.pub_date }} by {{p.author }}<br>
+<form action="{% url 'downvote' p.id%}" method="POST">
+    {% csrf_token %}
+      <input type="hidden" id="downvote" name="downvote">
+      <button type="submit">DOWN</button>
+</form>
+{% endfor %}
+{% endif %}
 </div>
