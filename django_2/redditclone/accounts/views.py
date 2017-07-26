@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -30,8 +30,13 @@ def loginview(request):
             if 'next' in request.POST:
                 return redirect(request.POST['next'])
             else:
-                return render(request, 'login.html', {'error': 'Successfully login'})
+                return redirect('home')
         else:
             return render(request, 'login.html', {'error':'username and password does not match'})
     else:
         return render(request, 'login.html')
+
+def logoutview(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home')
