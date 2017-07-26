@@ -12,14 +12,15 @@
 <form action="{% url 'upvote' p.id%} " method="POST">
     {% csrf_token %}
       <input type="hidden" id="upvote" name="upvote">
-      <button type="submit">UP</button>
+      <button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+</button>
 </form>
 {{p.votes_total}}<a href={{p.url}}> {{ p.title}} </a>
 {{p.pub_date }} by {{p.author }}<br>
 <form action="{% url 'downvote' p.id%}" method="POST">
     {% csrf_token %}
       <input type="hidden" id="downvote" name="downvote">
-      <button type="submit">DOWN</button>
+      <button type="submit"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button>
 </form>
 {% endfor %}
 {% endif %}
