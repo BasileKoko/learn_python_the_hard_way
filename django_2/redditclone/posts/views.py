@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from django.utils import timezone
+from django.contrib.auth.models import User
+
+
 
 
 @login_required
@@ -33,7 +36,7 @@ def upvote(request, pk):
         post = Post.objects.get(pk=pk)
         post.votes_total +=1
         post.save()
-        return redirect ('home')
+        return redirect('home')
 
 
 def downvote(request, pk):
@@ -42,3 +45,8 @@ def downvote(request, pk):
         post.votes_total -= 1
         post.save()
         return redirect('home')
+
+def post(request, author):
+    user = User.objects.get(username=author)
+    post = Post.objects.filter(author=user.id)
+    return render(request, 'posts/post.html', {'post': post, 'author': author})

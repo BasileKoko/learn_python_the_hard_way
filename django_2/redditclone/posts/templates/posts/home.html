@@ -9,14 +9,15 @@
 <div class="container">
   {% if posts %}
     {% for p in posts%}
+
 <form action="{% url 'upvote' p.id%} " method="POST">
     {% csrf_token %}
       <input type="hidden" id="upvote" name="upvote">
-      <button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-</button>
+      <button type="submit"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
 </form>
+
 {{p.votes_total}}<a href={{p.url}}> {{ p.title}} </a>
-{{p.pub_date }} by {{p.author }}<br>
+{{p.pub_date }} by <a href="{% url 'post' p.author %}" >{{p.author }}</a><br>
 <form action="{% url 'downvote' p.id%}" method="POST">
     {% csrf_token %}
       <input type="hidden" id="downvote" name="downvote">

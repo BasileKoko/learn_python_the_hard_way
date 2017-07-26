@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^create/', views.create, name='create'),
     url(r'^(?P<pk>[0-9]+)/upvote', views.upvote, name='upvote'),
     url(r'^(?P<pk>[0-9]+)/downvote', views.downvote, name='downvote'),
+    url(r'^(?P<author>[a-zA-Z]+)/', views.post, name='post'),
 ]
